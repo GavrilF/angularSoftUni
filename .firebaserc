@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "testproject-dd39a": {
+      "hosting": {
+        "finalProject": [
+          "testproject-dd39a"
+        ]
+      }
+    }
+  }
+}
