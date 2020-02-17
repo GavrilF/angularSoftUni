@@ -15,22 +15,19 @@ import { AngularFireStorage } from '@angular/fire/storage';
   styleUrls: ['./test.component.scss']
 })
 export class TestComponent implements OnInit {
-  filePath = "blogImages/65941710_2399894920105486_7235367009501200059_n.jpg";
-  img;
-  posts;
+  allPosts$: Observable<IPost[]>;
+  
   
   constructor(private postService: PostsService,private storage: AngularFireStorage) {
-    this.posts = this.postService.getPosts()
-      .subscribe(competitors =>{ competitors.map(competitor => console.log(competitor))})
-    
    }
 
   ngOnInit(): void {
   }
   loadPosts(){
-   let fileRef = this.storage.ref(this.filePath);
-   fileRef.getDownloadURL().subscribe((res)=> {this.img = res})
+   this.allPosts$ = this.postService.getFivePosts()
+   let a = new Date();
+   console.log(a.toString);
    
-   console.log(this.img)
+   console.log(this.allPosts$.forEach(console.log))
   }
 }

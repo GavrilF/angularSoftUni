@@ -1,14 +1,14 @@
-<section class="hero-area" style="margin-top:20px">
+<section class="hero-area" >
     
     <div class="hero-post-slides">    
         <owl-carousel-o [options]="customOptions">
-            <ng-template carouselSlide *ngFor="let slide of slidesStore" [id]="slide.id">
+            <ng-template carouselSlide *ngFor="let slide of slidesStore$ | async" [id]="slide.uid">
                 <div class="single-hero-post slider">
                     <!-- Post Image -->
-                    <div class="slide-img bg-img" [ngStyle]="{'background-image': 'url(' + slide.src +')','background-size': 'cover'}"></div>
+                    <div class="slide-img bg-img" [ngStyle]="{'background-image': 'url(' + slide.imgSrc +')','background-size': 'cover'}"></div>
                     <!-- Post Content -->
                     <div class="hero-slides-content">
-                        <p>{{slide.creationDate | date}} / Foody</p>
+                        <p>{{slide.creationDate.toDate() | date}}</p>
                         <a hres="#" class="post-title">
                         <h4>{{slide.title}}</h4>
                         </a>

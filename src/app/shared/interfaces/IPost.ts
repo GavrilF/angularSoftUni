@@ -1,8 +1,11 @@
+import { Timestamp} from '@firebase/firestore-types';
+
 export interface IPost {
     uid: string;
-    img: string;
+    imgLoc: string;
+    imgSrc: string;
     comments: any[];
-    creationDate: Date;
+    creationDate: Timestamp;
     description: string;
     tags: string;
     title: string;

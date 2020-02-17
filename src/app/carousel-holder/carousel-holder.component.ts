@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o'
+import { PostsService } from '../shared/services/posts.service';
+import { Observable } from 'rxjs';
+import { IPost } from '../shared/interfaces/IPost';
 
 @Component({
   selector: 'app-carousel-holder',
@@ -7,6 +10,9 @@ import { OwlOptions } from 'ngx-owl-carousel-o'
   styleUrls: ['./carousel-holder.component.scss']
 })
 export class CarouselHolderComponent implements OnInit {
+
+  slidesStore$: Observable<IPost[]>;
+
   customOptions: OwlOptions = {
     items: 5,
     margin: 20,
@@ -34,42 +40,43 @@ export class CarouselHolderComponent implements OnInit {
   }
 
 
-  slidesStore = [
-    {
-      id:"1",
-      src: '../../assets/new.jpg',
-      alt: "yo yoo",
-      title: "tuk sum",
-      creationDate: '11/12/2020'
-    },
-    {
-      id:"2",
-      src: "https://cdn.psychologytoday.com/sites/default/files/field_blog_entry_images/2019-06/howcuttingdo.jpg",
-      alt: "yo yoo",
-      title: "tuk sum"
-    },
-    {
-      id:"3",
-      src: "https://media.gettyimages.com/photos/different-types-of-food-on-rustic-wooden-table-picture-id861188910?s=612x612",
-      alt: "yo yoo",
-      title: "tuk sum"
-    },
-    {
-      id:"4",
-      src: "https://media.gettyimages.com/photos/different-types-of-food-on-rustic-wooden-table-picture-id861188910?s=612x612",
-      alt: "yo yoo",
-      title: "tuk sum"
-    },
-    {
-      id:"5",
-      src: "https://media.gettyimages.com/photos/different-types-of-food-on-rustic-wooden-table-picture-id861188910?s=612x612",
-      alt: "yo yoo",
-      title: "tuk sum"
-    },
-  ]
-  constructor() { }
+  // slidesStore = [
+  //   {
+  //     id:"1",
+  //     src: '../../assets/new.jpg',
+  //     alt: "yo yoo",
+  //     title: "tuk sum",
+  //     creationDate: '11/12/2020'
+  //   },
+  //   {
+  //     id:"2",
+  //     src: "https://cdn.psychologytoday.com/sites/default/files/field_blog_entry_images/2019-06/howcuttingdo.jpg",
+  //     alt: "yo yoo",
+  //     title: "tuk sum"
+  //   },
+  //   {
+  //     id:"3",
+  //     src: "https://media.gettyimages.com/photos/different-types-of-food-on-rustic-wooden-table-picture-id861188910?s=612x612",
+  //     alt: "yo yoo",
+  //     title: "tuk sum"
+  //   },
+  //   {
+  //     id:"4",
+  //     src: "https://media.gettyimages.com/photos/different-types-of-food-on-rustic-wooden-table-picture-id861188910?s=612x612",
+  //     alt: "yo yoo",
+  //     title: "tuk sum"
+  //   },
+  //   {
+  //     id:"5",
+  //     src: "https://media.gettyimages.com/photos/different-types-of-food-on-rustic-wooden-table-picture-id861188910?s=612x612",
+  //     alt: "yo yoo",
+  //     title: "tuk sum"
+  //   },
+  // ]
+  constructor(private postsService: PostsService) { }
 
   ngOnInit(): void {
+    this.slidesStore$ = this.postsService.getFivePosts()
   }
 
 }

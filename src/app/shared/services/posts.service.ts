@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { AngularFirestoreCollection } from '@angular/fire/firestore';
+import { Observable } from 'rxjs'
 import { IPost } from '../interfaces/IPost';
 import 'firebase/firestore';
 import 'firebase/storage';
@@ -12,15 +13,21 @@ import 'firebase/storage';
 })
 export class PostsService {
   
-  posts;
+  posts: Observable<IPost[]>;
   // : AngularFirestoreCollection<IPost>;
   constructor(
     private firestore: AngularFirestore,
     private storage: AngularFireStorage
-    ) {
-      this.posts = firestore.collection('posts').valueChanges()
-    }
-    getPosts(){
-      return this.posts
-    }
+    ) {}
+
+  getFivePosts(){
+    return this.firestore.collection<IPost>('posts',query => {
+      return query.orderBy("creationDate","desc").limit(5);
+      }).valueChanges()
+  }
+  getAllPosts(){
+    return this.firestore.collection<IPost>('posts',query => {
+      return query.orderBy("creationDate","desc")
+      }).valueChanges()
+  }
 }
