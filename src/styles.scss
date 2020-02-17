@@ -1,1 +1,124 @@
 /* You can add global styles to this file, and also import other style files */
+.hero-area,
+.hero-post-slides {
+  position: relative;
+  z-index: 1; }
+
+.single-hero-post {
+  width: 100%;
+  height: 480px;
+  position: relative;
+  z-index: 3;
+  overflow: hidden; }
+  @media only screen and (max-width: 767px) {
+    .single-hero-post {
+      height: 400px; } }
+  .single-hero-post::after {
+    content: "";
+    position: absolute;
+    height: 50%;
+    width: 100%;
+    z-index: -1;
+    top: 50%;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+    background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.01) 90%, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.01) 90%, rgba(0, 0, 0, 0) 100%); }
+  .single-hero-post .slide-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0; }
+  .single-hero-post .hero-slides-content {
+    position: absolute;
+    z-index: 30;
+    bottom: 25px;
+    left: 30px;
+    right: 20px; }
+    .single-hero-post .hero-slides-content p {
+      font-weight: 500;
+      font-size: 13px;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 2px; }
+      @media only screen and (min-width: 768px) and (max-width: 991px) {
+        .single-hero-post .hero-slides-content p {
+          letter-spacing: 1px;
+          font-size: 12px; } }
+    .single-hero-post .hero-slides-content .post-title h4 {
+      -webkit-transition-duration: 500ms;
+      transition-duration: 500ms;
+      color: #ffffff;
+      font-weight: 300;
+      line-height: 1.5;
+      margin-bottom: 0; }
+      .single-hero-post .hero-slides-content .post-title h4:hover {
+        color: #e59f80; }
+      @media only screen and (min-width: 768px) and (max-width: 991px) {
+        .single-hero-post .hero-slides-content .post-title h4 {
+          font-size: 20px; } }
+      @media only screen and (max-width: 767px) {
+        .single-hero-post .hero-slides-content .post-title h4 {
+          font-size: 20px; } }
+
+.hero-post-slides .owl-item.center .single-hero-post .slide-img {
+  -webkit-animation: slide 24s linear infinite;
+  animation: slide 24s linear infinite; }
+
+@-webkit-keyframes slide {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1); }
+  50% {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3); }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
+@keyframes slide {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1); }
+  50% {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3); }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
+/* :: 6.0 About Us Area CSS */
+.about-content {
+  position: relative;
+  z-index: 1; }
+  .about-content img {
+    margin-bottom: 30px; }
+  .about-content p {
+    font-size: 16px; }
+  .about-content blockquote h5 {
+    font-size: 18px;
+    color: #e59f80;
+    line-height: 1.8;
+    font-weight: 300;
+    font-style: italic; }
+  .about-content ul {
+    position: relative;
+    z-index: 1;
+    margin-left: 10%; }
+    .about-content ul li {
+      font-size: 16px;
+      color: #595959;
+      margin-bottom: 15px;
+      display: block; }
+      .about-content ul li i {
+        position: relative;
+        z-index: 1;
+        top: -2px;
+        font-size: 8px;
+        color: #191919;
+        margin-right: 10px; }
+  .about-content .signature {
+    text-align: center; }
+    
