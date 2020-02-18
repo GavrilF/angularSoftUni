@@ -30,4 +30,7 @@ export class PostsService {
       return query.orderBy("creationDate","desc")
       }).valueChanges()
   }
+  getPost(post: IPost){
+    return true
+  }
 }

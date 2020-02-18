@@ -5,6 +5,7 @@ import { AngularFirestoreCollection, AngularFirestoreCollectionGroup } from '@an
 import { Observable } from 'rxjs';
 import { tap, map, switchMap, flatMap, throttleTime } from 'rxjs/operators'
 import { AngularFireStorage } from '@angular/fire/storage';
+import { AuthService } from '../shared/services/auth.service';
 // import 'firebase/firestore';
 // import 'firebase/storage';
 
@@ -18,16 +19,15 @@ export class TestComponent implements OnInit {
   allPosts$: Observable<IPost[]>;
   
   
-  constructor(private postService: PostsService,private storage: AngularFireStorage) {
+  constructor(private postService: PostsService,private storage: AngularFireStorage,private userService: AuthService) {
    }
 
   ngOnInit(): void {
   }
-  loadPosts(){
-   this.allPosts$ = this.postService.getFivePosts()
-   let a = new Date();
-   console.log(a.toString);
-   
-   console.log(this.allPosts$.forEach(console.log))
-  }
+isLoggedIn(){
+  // this.userService.isAuth().subscribe(console.log)
+  console.log(this.userService.nowUser())
+  console.log(this.userService.getUserData().subscribe(console.log))
+}
+ 
 }
