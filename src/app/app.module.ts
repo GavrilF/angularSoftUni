@@ -21,6 +21,8 @@ import { CarouselHolderComponent } from './carousel-holder/carousel-holder.compo
 import { TestComponent } from './test/test.component';
 import { PostsService } from './shared/services/posts.service';
 import { UserModule } from './user/user.module';
+import { ContactsComponent } from './contacts/contacts.component';
+import { AboutComponent } from './about/about.component';
 
 
 @NgModule({
@@ -29,6 +31,8 @@ import { UserModule } from './user/user.module';
     HomeComponent,
     CarouselHolderComponent,
     TestComponent,
+    ContactsComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,

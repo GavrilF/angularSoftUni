@@ -1,6 +1,17 @@
 .landing-alert{
     margin-bottom: 0;
 }
+
+.settings-page .fileinput {
+    margin-top: -140px;
+    position: relative;
+    z-index: 3;
+}
+ .fileinput {
+    display: inline-block;
+    margin-bottom: 9px; 
+}
+
 .page-header{
     background-color: #B2AFAB;
     background-position: center center;

@@ -29,10 +29,10 @@
                     <a class="nav-link" routerLink="">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link" routerLink="about">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contacts</a>
+                    <a class="nav-link" routerLink="contacts">Contacts</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Recipes</a>
@@ -46,7 +46,7 @@
                     <a routerLink="login" class="btn btn-outline-primary btn-round"><i class="fa fa-user"></i>Login</a>
                 </li>
                 <li class="nav-item" *ngIf="isAuth">
-                <a routerLink="login" class="btn btn-primary btn-round" [ngStyle]="{'background-image': 'url(' + currentUser.picture +')','background-size': 'cover'}">Hello {{currentUser.firstName}}</a>
+                <a routerLink="profile" class="btn btn-primary btn-round" [ngStyle]="{'background-image': 'url(' + (currentUser.picture) +')','background-size': 'cover'}">Hello {{currentUser.firstName}}</a>
                 </li>
                 
             </ul>

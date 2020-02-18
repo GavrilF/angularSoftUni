@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { LoginComponent } from '../../user/login/login.component';
-import { AuthService } from 'src/app/shared/services/auth.service';
+import { AuthService } from 'src/app/shared/services/auth.service';;
 
 @Component({
   selector: 'app-navigation',
@@ -11,12 +9,13 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 export class NavigationComponent implements OnInit {
   isAuth;
   currentUser;
-  constructor(private modalService: NgbModal,private userService: AuthService) { 
+  constructor(private userService: AuthService) { 
     this.isAuth = this.userService.isAuth()
-    this.userService.getUserData().subscribe(user => this.currentUser = user)
+    
   }
 
   ngOnInit(): void {
+    this.userService.getUserData().subscribe((user) => this.currentUser = user)
   }
   sidebarToggle(){
     
