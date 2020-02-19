@@ -7,12 +7,11 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from '../environments/environment';
 
-// import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { CoreModule } from './core/core.module';
+import { PostsModule } from './posts/posts.module';
 
 
 import { HomeComponent } from './home/home.component';
@@ -23,6 +22,8 @@ import { PostsService } from './shared/services/posts.service';
 import { UserModule } from './user/user.module';
 import { ContactsComponent } from './contacts/contacts.component';
 import { AboutComponent } from './about/about.component';
+import { DownloadComponent } from './download/download.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -32,7 +33,9 @@ import { AboutComponent } from './about/about.component';
     CarouselHolderComponent,
     TestComponent,
     ContactsComponent,
-    AboutComponent
+    AboutComponent,
+    DownloadComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -43,9 +46,8 @@ import { AboutComponent } from './about/about.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireStorageModule,
     AngularFirestoreModule,
-    // FormsModule,
-    // ReactiveFormsModule,
-    UserModule
+    UserModule,
+    PostsModule
   ],
   providers: [PostsService],
   bootstrap: [AppComponent]

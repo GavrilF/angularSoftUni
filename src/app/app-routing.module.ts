@@ -10,6 +10,8 @@ import { AboutComponent } from './about/about.component';
 import { CreatePostComponent } from './posts/create-post/create-post.component';
 import { PostsListComponent } from './posts/posts-list/posts-list.component';
 import { PostDetailComponent } from './posts/post-detail/post-detail.component';
+import { DownloadComponent } from './download/download.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 const routes: Routes = [
@@ -17,6 +19,10 @@ const routes: Routes = [
     path: '',
     pathMatch: 'full',
     component: HomeComponent
+  },
+  {
+    path: 'download',
+    component: DownloadComponent
   },
   {
     path: 'login',
@@ -49,6 +55,10 @@ const routes: Routes = [
   {
     path: 'post/:id',
     component: PostDetailComponent
+  },
+  {
+    path: '**',
+    component: NotFoundComponent
   }
 
   

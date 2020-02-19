@@ -12,5 +12,6 @@ export interface IPost {
     tags: string;
     title: string;
     category: string;
+    creator: string;
 
 }

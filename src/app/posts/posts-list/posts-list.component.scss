@@ -1,0 +1,67 @@
+.container{
+  margin-top: 100px;
+}
+.post-date {
+  font-weight: 500;
+  font-size: 13px;
+  /* color: #ffffff; */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  /* color: #e59f80; */
+}
+.single-blog-post .post-content .post-title h4 {
+  -webkit-transition-duration: 500ms;
+  transition-duration: 500ms;
+  font-weight: 300;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+.single-blog-post .post-content .post-meta {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 15px;
+}
+
+.single-blog-post .post-thumbnail {
+  position: relative;
+  z-index: 1;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+  max-width: 50%;
+  width: 50%;
+  margin-right: 6%;
+}
+
+.single-blog-post .post-content {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 44%;
+  flex: 0 0 44%;
+  max-width: 44%;
+  width: 44%;
+}
+.flex-wrap{
+  flex-wrap: nowrap;
+}
+
+.fit-image{
+  width: 100%;
+  object-fit: cover;
+  height: 300px; /* only if you want fixed height */
+}
+
+  hr {
+    border-color: black;
+    border-top: 1px solid black;
+    width: 100%;
+}
+.single-blog-post .post-content .post-excerpt {
+  max-height: 50px;
+  position: relative;
+  line-height: 25px;
+  display: inline-block;
+  font-size: 16px;
+  color: #595959;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

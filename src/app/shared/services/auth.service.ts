@@ -37,7 +37,7 @@ export class AuthService {
     getUserData() {
       return this.afDb
         .collection("users")
-        .doc(this.currentUserId)
+        .doc("M6bQWb4UwDTVDPeRXjnRAQVAlHh1")
         .snapshotChanges()
         .pipe(map(user => user.payload.data()));
     }

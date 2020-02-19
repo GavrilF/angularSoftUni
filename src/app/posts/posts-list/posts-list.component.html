@@ -1,1 +1,42 @@
-<p>posts-list works!</p>
+<!-- <div>
+    <article *ngFor="let post of posts$ | async">
+    <p>{{post.creator}}</p>
+    </article>
+</div> -->
+
+
+<div class="container">
+    <div class="row">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                <div class="blog-posts-area">
+                    <ul *ngFor="let post of posts$ | async">
+                        <div class="single-blog-post flex-wrap d-flex mt-5">
+                            <!-- Thumbnail -->
+                            <div class="post-thumbnail mb-5">
+                                <a href="#"><img class="fit-image" [src]="post.imgSrc" alt=""></a>
+                            </div>
+                            <!-- Content -->
+                            <div class="post-content mb-50">
+                            <p class="post-date">{{post.creationDate.toDate() | date}} / {{post.category}}</p>
+                                <a href="#" class="post-title">
+                                <h4>{{post.title}}</h4>
+                                </a>
+                                <div class="post-meta">
+                                    <a href="#"><span>by</span> {{post.creator}}</a>
+                                    <!-- <a href="#"><i class="fa fa-eye"></i> 192</a>
+                                    <a href="#"><i class="fa fa-comments"></i> 08</a> -->
+                                </div>
+                                <p class="post-excerpt">{{post.description}}.</p>
+                                <a routerLink="" class="read-more-btn">Continue Reading <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                            </div>
+                            <!-- Line break -->
+                            <hr>
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
