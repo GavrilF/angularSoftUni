@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/shared/services/auth.service';;
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-navigation',
@@ -16,6 +16,10 @@ export class NavigationComponent implements OnInit {
 
   ngOnInit(): void {
     this.userService.getUserData().subscribe((user) => this.currentUser = user)
+  }
+
+  signOut(){
+    this.userService.signOut()
   }
   sidebarToggle(){
     

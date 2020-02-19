@@ -32,7 +32,7 @@ import { AboutComponent } from './about/about.component';
     CarouselHolderComponent,
     TestComponent,
     ContactsComponent,
-    AboutComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

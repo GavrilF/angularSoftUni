@@ -1,5 +1,7 @@
 import { Timestamp} from '@firebase/firestore-types';
 
+//Firebase uses Timestamp,so i need it to convert it with date pipe 
+
 export interface IPost {
     uid: string;
     imgLoc: string;
@@ -9,4 +11,6 @@ export interface IPost {
     description: string;
     tags: string;
     title: string;
+    category: string;
+
 }

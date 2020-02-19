@@ -7,6 +7,9 @@ import { ProfileComponent } from './user/profile/profile.component';
 import { ProfileSettingsComponent } from './user/profile-settings/profile-settings.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { AboutComponent } from './about/about.component';
+import { CreatePostComponent } from './posts/create-post/create-post.component';
+import { PostsListComponent } from './posts/posts-list/posts-list.component';
+import { PostDetailComponent } from './posts/post-detail/post-detail.component';
 
 
 const routes: Routes = [
@@ -35,6 +38,19 @@ const routes: Routes = [
     path: 'contacts',
     component: ContactsComponent
   },
+  {
+    path: 'createpost',
+    component: CreatePostComponent
+  },
+  {
+    path: 'allposts',
+    component: PostsListComponent
+  },
+  {
+    path: 'post/:id',
+    component: PostDetailComponent
+  }
+
   
 ];
 

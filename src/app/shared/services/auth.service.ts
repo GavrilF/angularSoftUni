@@ -9,21 +9,35 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
+  
+  currentUserId
 
   constructor(
     private afDb: AngularFirestore,
     private afAuth: AngularFireAuth,
-    private router: Router) { }
+    private router: Router) {
+      
+    }
 
     nowUser(){
       return this.afAuth.currentUser.then(user => {
         console.log(user)
       })
     }
+    //Must Edit
+    currentUser(){
+      this.afAuth.authState.subscribe(data => this.currentUserId = data.uid)
+    }
+
+    signOut(){
+      this.afAuth.signOut().then((res)=> console.log(res))
+      
+    }
+    // Must Edit
     getUserData() {
       return this.afDb
         .collection("users")
-        .doc("M6bQWb4UwDTVDPeRXjnRAQVAlHh1")
+        .doc(this.currentUserId)
         .snapshotChanges()
         .pipe(map(user => user.payload.data()));
     }

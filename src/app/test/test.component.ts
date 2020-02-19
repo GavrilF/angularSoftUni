@@ -25,9 +25,7 @@ export class TestComponent implements OnInit {
   ngOnInit(): void {
   }
 isLoggedIn(){
-  // this.userService.isAuth().subscribe(console.log)
-  console.log(this.userService.nowUser())
-  console.log(this.userService.getUserData().subscribe(console.log))
+  this.userService.currentUser()
 }
  
 }
