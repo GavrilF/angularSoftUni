@@ -5,6 +5,7 @@ import { PostDetailComponent } from './post-detail/post-detail.component';
 import { CreatePostComponent } from './create-post/create-post.component';
 import { PostsService } from '../shared/services/posts.service';
 import { RouterModule } from '@angular/router';
+import { PostRoutingModule } from './post-routing.module';
 
 
 
@@ -16,7 +17,8 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    PostRoutingModule
   ],
   providers:[
     PostsService

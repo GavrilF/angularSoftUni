@@ -1,17 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './user/login/login.component';
-import { ProfileComponent } from './user/profile/profile.component';
-import { ProfileSettingsComponent } from './user/profile-settings/profile-settings.component';
+import { HomeComponent } from './core/home/home.component';
+import { LoginComponent } from './auth/login/login.component';
+
 import { ContactsComponent } from './contacts/contacts.component';
 import { AboutComponent } from './about/about.component';
-import { CreatePostComponent } from './posts/create-post/create-post.component';
-import { PostsListComponent } from './posts/posts-list/posts-list.component';
-import { PostDetailComponent } from './posts/post-detail/post-detail.component';
+
 import { DownloadComponent } from './download/download.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 
 const routes: Routes = [
@@ -19,6 +16,14 @@ const routes: Routes = [
     path: '',
     pathMatch: 'full',
     component: HomeComponent
+  },
+  {
+    path: "posts",
+    loadChildren: () => import("./posts/posts.module").then(m => m.PostsModule)
+  },
+  {
+    path: "profile",
+    loadChildren: () => import("./user/user.module").then(m => m.UserModule)
   },
   {
     path: 'download',
@@ -29,12 +34,8 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'profile/settings',
-    component: ProfileSettingsComponent
-  },
-  {
-    path: 'profile',
-    component: ProfileComponent
+    path: 'regiser',
+    component: RegisterComponent
   },
   {
     path: 'about',
@@ -43,18 +44,6 @@ const routes: Routes = [
   {
     path: 'contacts',
     component: ContactsComponent
-  },
-  {
-    path: 'createpost',
-    component: CreatePostComponent
-  },
-  {
-    path: 'allposts',
-    component: PostsListComponent
-  },
-  {
-    path: 'post/:id',
-    component: PostDetailComponent
   },
   {
     path: '**',

@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { OwlOptions } from 'ngx-owl-carousel-o'
-import { PostsService } from '../shared/services/posts.service';
+import { OwlOptions } from 'ngx-owl-carousel-o';
+import { PostsService } from 'src/app/shared/services/posts.service';
 import { Observable } from 'rxjs';
-import { IPost } from '../shared/interfaces/IPost';
+import { IPost } from 'src/app/shared/interfaces/IPost';
 
 @Component({
-  selector: 'app-carousel-holder',
-  templateUrl: './carousel-holder.component.html',
-  styleUrls: ['./carousel-holder.component.scss']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
-export class CarouselHolderComponent implements OnInit {
+export class HomeComponent implements OnInit {
 
   slidesStore$: Observable<IPost[]>;
-
+  // Carousel Options
   customOptions: OwlOptions = {
     items: 5,
     margin: 20,

@@ -4,22 +4,28 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
+import { HomeComponent } from './home/home.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+// import { CarouselHolderComponent } from './carousel-holder/carousel-holder.component';
 
 
 
 @NgModule({
   declarations: [
     NavigationComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-    NgbModule
+    NgbModule,
+    CarouselModule
   ],
   exports: [
     NavigationComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent
   ]
 })
 export class CoreModule { }

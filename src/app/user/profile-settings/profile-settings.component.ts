@@ -10,16 +10,15 @@ import { Observable } from 'rxjs';
 })
 export class ProfileSettingsComponent implements OnInit {
 
-  user$: Observable<IUser>
+  user$: Observable<IUser>;
   constructor(public userService: AuthService) { 
-    this.user$ = userService.user$;
   }
-
+  
   uploadFile($event) {
     console.log($event.target.files[0]); // outputs the first file
-}
+  }
   ngOnInit(): void {
-    
+    this.user$ = this.userService.user$
     
   }
 

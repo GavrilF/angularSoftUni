@@ -12,11 +12,11 @@ import { IUser } from 'src/app/shared/interfaces/IUser';
 export class ProfileComponent implements OnInit {
   user$: Observable<IUser>
   constructor(public userService: AuthService) {
-    this.user$ = userService.user$;
   }
-
+  
   ngOnInit(): void {
     
+    this.user$ = this.userService.user$;
   }
 
 }
