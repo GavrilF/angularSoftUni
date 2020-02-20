@@ -21,6 +21,7 @@ import { AboutComponent } from './about/about.component';
 import { DownloadComponent } from './download/download.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthModule } from './auth/auth.module';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
@@ -30,7 +31,7 @@ import { AuthModule } from './auth/auth.module';
     ContactsComponent,
     AboutComponent,
     DownloadComponent,
-    NotFoundComponent
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +44,8 @@ import { AuthModule } from './auth/auth.module';
     AngularFirestoreModule,
     UserModule,
     PostsModule,
-    AuthModule
+    AuthModule,
+    SharedModule
   ],
   providers: [PostsService],
   bootstrap: [AppComponent]

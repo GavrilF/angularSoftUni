@@ -1,1 +1,37 @@
-<p>register works!</p>
+<div class="container register-form">
+    <div class="form">
+        <div class="note">
+            <h2 class="title">Register</h2>
+        </div>
+        <form #registerForm="ngForm" (ngSubmit)="register(registerForm.value)">
+            <div class="form-content">
+                <div class="row">
+                        <div class="form-group col-md-6">
+                            <input
+                            #firstName="ngModel" type="text" ngModel name="firstName" required class="form-control" placeholder="Your First Name *" value=""/>
+                            <h6 class="erorr-message" *ngIf="firstName.touched && firstName.hasError('required')">Please enter valid name.</h6>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input #lastName="ngModel" ngModel name="lastName" required
+                            type="text" class="form-control" placeholder="Your Last Name *" value=""/>
+                            <h6 class="erorr-message" *ngIf="lastName.touched && lastName.hasError('required')">Please enter valid name.</h6>
+                        </div>
+                </div>
+                <div class="row" appPasswordMatch #passwordsGroup="ngModelGroup" ngModelGroup="passwords">
+                    <div class="form-group col-md-6">
+                        <input #password="ngModel" ngModel name="password" required minlength="6"
+                        type="password" class="form-control" placeholder="Your Password *" value=""/>
+                        <h6 *ngIf="password.invalid && password.touched">Password must be at least 6 symbols</h6>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input  #rePassword="ngModel" ngModel name="rePassword"  required
+                        type="password" class="form-control" placeholder="Confirm Password *" value=""/>
+                        <h6 *ngIf="passwordsGroup.invalid && rePassword.touched">Passwords don't match</h6>
+                    </div>
+                </div>
+            </div>
+                <button class="btnSubmit">Submit</button>
+            
+        </form>
+    </div>
+</div>
