@@ -12,7 +12,6 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { PostsModule } from './posts/posts.module';
 import { CarouselModule } from 'ngx-owl-carousel-o'
-import { TestComponent } from './test/test.component';
 import { PostsService } from './shared/services/posts.service';
 import { UserModule } from './user/user.module';
 import { ContactsComponent } from './contacts/contacts.component';
@@ -27,7 +26,6 @@ import { SharedModule } from './shared/shared.module';
 @NgModule({
   declarations: [
     AppComponent,
-    TestComponent,
     ContactsComponent,
     AboutComponent,
     DownloadComponent,

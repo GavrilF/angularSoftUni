@@ -1,0 +1,43 @@
+<div class="test">
+</div>
+
+<div class="container register-form">
+    <div class="form">
+        <div class="note">
+            <h2 class="title">Create</h2>
+        </div>
+            <form [formGroup]="signup" (ngSubmit)="submit()">
+                <div class="form-content">
+                    <div class="row">
+                        <div  class="form-group col-md-6">
+                            <label>Title</label>
+                            <input class="form-control" type="text" formControlName="title">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Category</label>
+                            <input class="form-control" type="text" formControlName="category">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label>Tags</label>
+                            <input class="form-control" type="text" formControlName="tags">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Description</label>
+                            <textarea class="form-control" type="text" formControlName="description"></textarea>
+                        </div>
+                    </div>
+
+                    <app-file-upload formControlName="image" ></app-file-upload>
+                </div>
+            
+              <!-- [progress]="progress" -->
+            
+              <button [disabled]="signup.invalid">Submit</button>   
+            </form>
+        </div>
+        
+</div>
+<button (click)="logData()">Log Data</button>
+
