@@ -1,4 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+div {
+  .ng-valid .ng-touched{
+    input{
+      border-color: green;
+    }
+  }
+}
+div .ng-invalid .ng-touched{
+  input{
+    border-color: red;
+  }
+}
 .ng-touched.ng-invalid, 
 .password-match-touched.password-match-invalid {
   border-color: red;
