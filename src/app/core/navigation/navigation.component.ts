@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { IUser } from 'src/app/shared/interfaces/IUser';
+import { Subscription, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-navigation',
@@ -7,19 +9,18 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent implements OnInit {
-  isAuth;
-  currentUser;
-  constructor(private userService: AuthService) { 
-    this.isAuth = this.userService.isAuth()
-    
+  
+  user$: Observable<IUser>
+  constructor(private authService: AuthService) {
+    this.user$ = authService.user$;
   }
 
   ngOnInit(): void {
-    this.userService.getUserData().subscribe((user) => this.currentUser = user)
+ 
   }
 
   signOut(){
-    this.userService.signOut()
+    this.authService.signOut()
   }
   sidebarToggle(){
     

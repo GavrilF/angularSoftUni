@@ -13,5 +13,6 @@ export interface IPost {
     title: string;
     category: string;
     creator: string;
+    id: string;
 
 }

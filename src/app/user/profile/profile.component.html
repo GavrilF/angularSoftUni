@@ -6,16 +6,16 @@
         <div class="container">
             <div class="owner">
                 <div class="avatar">
-                    <img [src]="currentUser.picture" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                    <img [src]="(user$ | async)?.picture" alt="Circle Image" class="img-circle img-no-padding img-responsive">
                 </div>
                 <div class="name">
-                <h4 class="text-center">{{currentUser.firstName + currentUser.lastName}}<br /></h4>
-                <h6 class="description">{{currentUser.email}}</h6>
+                <h4 class="text-center">{{(user$ | async)?.firstName}} {{(user$ | async)?.lastName}}<br /></h4>
+                <h6 class="description">{{(user$ | async)?.email}}</h6>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6 ml-auto mr-auto text-center">
-                <p>{{currentUser.description}}</p>
+                <p>{{(user$ | async)?.description}}</p>
                     <br />
                     <a routerLink='settings' class="btn btn-outline-default btn-round"><i class="fa fa-cog"></i> Settings</a>
                 </div>

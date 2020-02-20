@@ -1,4 +1,9 @@
 <button (click)="isLoggedIn()">IsLogged</button>
+<button (click)="logout()">loggout</button>
+<p currentUser as user>
+    {{(currentUser | async)?.firstName}}
+
+</p>
 <!-- <img [src]='imgSrc'> -->
 <!-- <ul *ngFor="let post of posts | async">
 <li>{{post.img}}</li>

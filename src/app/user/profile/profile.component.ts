@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { Observable } from 'rxjs';
+import { IUser } from 'src/app/shared/interfaces/IUser';
 
 
 @Component({
@@ -8,12 +10,13 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  currentUser;
-  constructor(private userService: AuthService) {
-    this.userService.getUserData().subscribe((user) => this.currentUser = user)
-   }
+  user$: Observable<IUser>
+  constructor(public userService: AuthService) {
+    this.user$ = userService.user$;
+  }
 
   ngOnInit(): void {
+    
   }
 
 }

@@ -23,12 +23,12 @@ export class PostsService {
   getFivePosts(){
     return this.firestore.collection<IPost>('posts',query => {
       return query.orderBy("creationDate","desc").limit(5);
-      }).valueChanges()
+      }).valueChanges({idField: 'id'})
   }
   getAllPosts(){
     return this.firestore.collection<IPost>('posts',query => {
       return query.orderBy("creationDate","desc")
-      }).valueChanges()
+      }).valueChanges({idField: 'id'})
   }
   getPost(post: IPost){
     return true

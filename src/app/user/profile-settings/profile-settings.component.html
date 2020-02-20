@@ -14,7 +14,7 @@
                         <!-- <app-image-upload  _nghost-rih-c14=""> -->
                             <div  class="fileinput fileinput-new text-center">
                                 <div  class="thumbnail img-no-padding">
-                                  <img  alt="..." [src]="currentUser.picture">
+                                  <img  alt="..." [src]="(user$ | async)?.picture">
                                 </div>
                                 <div class="btn btn-outline-default btn-file btn-round" (click)="uploader.click()">
                                     <input #uploader type="file" style="display: none;" (change)="uploadFile($event)">Select image

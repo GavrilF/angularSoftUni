@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { IUser } from 'src/app/shared/interfaces/IUser';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-profile-settings',
@@ -8,10 +10,9 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 })
 export class ProfileSettingsComponent implements OnInit {
 
-  currentUser;
-  constructor(private userService: AuthService) { 
-    
-    this.userService.getUserData().subscribe((user) => this.currentUser = user)
+  user$: Observable<IUser>
+  constructor(public userService: AuthService) { 
+    this.user$ = userService.user$;
   }
 
   uploadFile($event) {
