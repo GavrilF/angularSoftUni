@@ -3,6 +3,7 @@ import { PostsListComponent } from './posts-list/posts-list.component';
 import { CreatePostComponent } from './create-post/create-post.component';
 import { PostDetailComponent } from './post-detail/post-detail.component';
 import { SinglePostResolver } from '../shared/resolvers/singlePostResolver';
+import { AuthGuardGuard } from '../shared/guards/auth-guard.guard';
 
 const routes: Routes = [
     {
@@ -12,7 +13,8 @@ const routes: Routes = [
     },
     {
         path: "createpost",
-        component: CreatePostComponent
+        component: CreatePostComponent,
+        canActivate: [AuthGuardGuard]
     },
     {
         path: ":id",

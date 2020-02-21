@@ -11,7 +11,6 @@ import { IUser } from '../interfaces/IUser';
   providedIn: 'root'
 })
 export class AuthService {
-
   user$: Observable<IUser>
 
 
@@ -33,9 +32,15 @@ export class AuthService {
      }
   
   signOut(){
-    this.afAuth.signOut().then((res)=> console.log(res)) 
+    this.afAuth.signOut().then((res)=> {
+    })
+    localStorage.removeItem("user");
+    this.router.navigate([''])
   };
-
+  getAuthStatus(){
+    const user = localStorage.getItem("user");
+    return user !== null
+  }
   signUpWithEmail(value){
     // Create user in Firebase Authentication and after this add user data in user collection db;
 
@@ -58,7 +63,9 @@ export class AuthService {
   }
     
   signInWithEmail(email,password){
-    this.afAuth.signInWithEmailAndPassword(email, password).then(res => {console.log(res)});
-    this.router.navigate(['']);
+    this.afAuth.signInWithEmailAndPassword(email, password).then(res => {
+      this.router.navigate(['']);
+    });
+    localStorage.setItem("user","true")
   }
 }
