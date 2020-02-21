@@ -1,26 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireStorageModule } from '@angular/fire/storage';
-import { environment } from '../environments/environment';
-
 import { AppRoutingModule } from './app-routing.module';
+
+// Components Imports
 import { AppComponent } from './app.component';
-import { CoreModule } from './core/core.module';
-import { PostsModule } from './posts/posts.module';
-import { CarouselModule } from 'ngx-owl-carousel-o'
-import { PostsService } from './shared/services/posts.service';
-import { UserModule } from './user/user.module';
+import { DownloadComponent } from './download/download.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { AboutComponent } from './about/about.component';
-
-import { DownloadComponent } from './download/download.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+// Modules Imports
+import { FirebaseModule } from './firebase-module/firebase-module.module';
+import { CoreModule } from './core/core.module';
+import { PostsModule } from './posts/posts.module';
+import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { SharedModule } from './shared/shared.module';
+
+
 
 
 @NgModule({
@@ -36,16 +33,13 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     CoreModule,
     BrowserAnimationsModule,
-    CarouselModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireStorageModule,
-    AngularFirestoreModule,
+    FirebaseModule,
     UserModule,
     PostsModule,
     AuthModule,
     SharedModule
   ],
-  providers: [PostsService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
