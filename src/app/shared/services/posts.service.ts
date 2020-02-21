@@ -11,6 +11,7 @@ import { finalize, tap } from 'rxjs/operators';
 import { AuthService } from './auth.service';
 import { IUser } from '../interfaces/IUser';
 import { Router } from '@angular/router';
+import { query } from '@angular/animations';
 
 
 @Injectable({
@@ -84,7 +85,9 @@ export class PostsService {
   }
 
 
-  getPost(post: IPost){
-    return true
+  getPost(postId:string){
+    return this.firestore.collection("posts").doc<IPost>(postId).valueChanges()
   }
+
+
 }

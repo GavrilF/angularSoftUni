@@ -51,6 +51,10 @@ const routes: Routes = [
     component: ContactsComponent
   },
   {
+    path: 'not-found',
+    component: NotFoundComponent
+  },
+  {
     path: '**',
     component: NotFoundComponent
   }

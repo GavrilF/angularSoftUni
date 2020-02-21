@@ -1,1 +1,32 @@
-<p>post-detail works!</p>
+<div class="container">
+    <section class="blog-content-area section-padding-0-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- Blog Posts Area -->
+                <div class="col-12 col-lg-8">
+                    <div class="blog-posts-area">
+    
+                        <!-- Post Details Area -->
+                        <div class="single-post-details-area">
+                            <div class="post-thumbnail mb-30">
+                                <img [src]="post.imgSrc" alt="">
+                            </div>
+                            <div class="post-content">
+                                <p class="post-date">{{post.creationDate.toDate() | date}} / {{post.category}}</p>
+                                <h4 class="post-title">{{post.title}}</h4>
+                                <div class="post-meta">
+                                    <a href="#"><span>by</span> {{post.creator}}</a>
+                                   
+                                </div>
+                                <p>{{post.description}}</p>
+                                
+                            </div>
+                        </div>
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+</div>
