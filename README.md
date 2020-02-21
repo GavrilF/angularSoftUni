@@ -8,19 +8,21 @@ That is my coursework in Angular for SoftUni.
 
 
 ## 1.1 Public Part
-    * Home component
-    * Login / Register component
-    * Blog list component
-    * Blog details component
+
+* Home component
+* Login / Register component
+* Blog list component
+* Blog details component
 
 
 ## 1.2 Private Part
-    * Create post component
-    * Profile module (profile settings,profile)
+
+* Create post component
+* Profile module (profile settings,profile)
 
 ## Used:
-    -Angular - for front-end
-    -Firebase - BaaS
-    --AngularFire
+* Angular - for front-end
+* Firebase - BaaS
+* AngularFire
 
 
