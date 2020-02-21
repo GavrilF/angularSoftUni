@@ -6,12 +6,12 @@
             <div  class="filter">
             </div>
         </div>
-    
+    <form>
         <div  class="profile-content section">
             <div  class="container">
                 <div  class="row">
                     <div  class="profile-picture">
-                        <!-- <app-image-upload  _nghost-rih-c14=""> -->
+                       
                             <div  class="fileinput fileinput-new text-center">
                                 <div  class="thumbnail img-no-padding">
                                   <img  alt="..." [src]="(user$ | async)?.picture">
@@ -21,7 +21,7 @@
                                   <!-- <button  type="file" class="btn btn-outline-default btn-file btn-round">Select image</button> -->
                                 </div>
                               </div>
-                        <!-- </app-image-upload> -->
+                     
                     </div>
                 </div>
                 <div  class="row mt-3">
@@ -41,9 +41,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div  class="form-group"><label >Job Title</label>
-                            <input  class="form-control border-input" placeholder="Job Title" type="text">
-                        </div>
                         <div  class="form-group">
                             <label >Description</label>
                             <textarea  class="form-control textarea-limited" maxlength="150" placeholder="This is a textarea limited to 150 characters." rows="3"></textarea>
@@ -58,5 +55,7 @@
         </div>
         </div>
     </div>
+
+    </form>
 </div>
 </div>

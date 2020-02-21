@@ -17,7 +17,7 @@
                             <h6 class="erorr-message" *ngIf="lastName.touched && lastName.hasError('required')">Please enter valid name.</h6>
                         </div>
                 </div>
-                <div class="row" appPasswordMatch #passwordsGroup="ngModelGroup" ngModelGroup="passwords">
+                <div class="row" appPasswordMatch #passwordsGroup="ngModelGroup" ngModelGroup="passwordsGroup">
                     <div class="form-group col-md-6">
                         <input #password="ngModel" ngModel name="password" required minlength="6"
                         type="password" class="form-control" placeholder="Your Password *" value=""/>
@@ -29,8 +29,15 @@
                         <h6 *ngIf="passwordsGroup.invalid && rePassword.touched">Passwords don't match</h6>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <input
+                        #email="ngModel" type="text" ngModel name="email" required email class="form-control" placeholder="Your email *" value=""/>
+                        <h6 class="erorr-message" *ngIf="email.touched && email.hasError('email')">Please enter valid email</h6>
+                    </div>
+                </div>
             </div>
-                <button class="btnSubmit">Submit</button>
+                <button [disabled]="registerForm.invalid" class="btnSubmit">Submit</button>
             
         </form>
     </div>
