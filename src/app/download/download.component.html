@@ -1,1 +1,19 @@
-<p>download works!</p>
+<div class="page-header" data-parallax="true" style="background-image: url('./assets/img/daniel-olahh.jpg');">
+    <div class="filter"></div>
+    <div class="container">
+        <div class="motto text-center">
+            <h1 class="font-weight-bolder">Healthy book</h1>
+            <h3>Download Our healthy book</h3>
+            <br />
+            <form #downloadForm='ngForm' (ngSubmit)="emailSubmit(downloadForm.value)">
+                <div class="center">
+                    <input class="col-md-4" #emailInput="ngModel" ngModel name="email" type="email" required email placeholder="Enter your email">
+                    <button class="btn btn-outline-neutral btn-round">Download</button>
+                </div>
+                <div class="center">
+                </div>
+            </form>
+            <!-- <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="btn btn-outline-neutral btn-round"><i class="fa fa-play"></i>Watch video</a> -->
+        </div>
+    </div>
+</div>

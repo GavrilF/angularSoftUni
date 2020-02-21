@@ -11,5 +11,8 @@ export class DownloadComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  emailSubmit(){
+    alert('when the book is done we will send your mail')
+  }
 
 }
