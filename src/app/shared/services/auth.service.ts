@@ -2,22 +2,27 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore } from "@angular/fire/firestore";
 import { Router } from '@angular/router';
-import { tap, map, switchMap } from 'rxjs/operators';
+import { tap, map, switchMap, finalize, take, catchError } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { User } from 'firebase';
 import { IUser } from '../interfaces/IUser';
+import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  user$: Observable<IUser>
+
+  user$: Observable<IUser>;
+  task:AngularFireUploadTask;
+  downloadURL;
 
 
   constructor(
     private afDb: AngularFirestore,
     private afAuth: AngularFireAuth,
-    private router: Router) {
+    private router: Router,
+    private storage: AngularFireStorage) {
 
     this.user$ = this.afAuth.authState.pipe(
       switchMap(user => {
@@ -37,9 +42,34 @@ export class AuthService {
     localStorage.removeItem("user");
     this.router.navigate([''])
   };
+
   getAuthStatus(){
     const user = localStorage.getItem("user");
     return user !== null
+  }
+  // The trash comes again, wil be fixed later.
+  updateProfile(data,uid){
+    const {image,firstName,lastName,description} = data;
+    const path = `profilePictures/${image.name}`;
+    const ref = this.storage.ref(path)
+    this.task = this.storage.upload(path,image)
+    return this.task.snapshotChanges().pipe(
+      take(1),
+      tap(console.log),
+      finalize( async() => {
+        this.downloadURL = await ref.getDownloadURL().toPromise().then(res => {
+          const data = {
+            picture: res,
+            firstName: firstName,
+            lastName: lastName,
+            description: description
+          }
+          this.afDb.collection('users').doc(uid).update(data).then(res => {
+            this.router.navigate(['profile'])
+            alert("Successful update")
+          }).catch(err => {console.log(err)})
+        })
+      })).subscribe()
   }
   signUpWithEmail(value){
     // Create user in Firebase Authentication and after this add user data in user collection db;

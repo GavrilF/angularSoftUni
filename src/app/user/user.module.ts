@@ -7,6 +7,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { NgbModule} from '@ng-bootstrap/ng-bootstrap'
 import { RouterModule } from '@angular/router';
 import { UserRoutingModule } from './user-routing.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -23,7 +24,8 @@ import { UserRoutingModule } from './user-routing.module';
     ReactiveFormsModule,
     NgbModule,
     RouterModule,
-    UserRoutingModule
+    UserRoutingModule,
+    SharedModule
 
   ]
 })

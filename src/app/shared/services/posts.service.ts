@@ -7,7 +7,7 @@ import { IPost } from '../interfaces/IPost';
 import 'firebase/firestore';
 import 'firebase/storage';
 import * as firebase from 'firebase/app';
-import { finalize, tap } from 'rxjs/operators';
+import { finalize, tap, take } from 'rxjs/operators';
 import { AuthService } from './auth.service';
 import { IUser } from '../interfaces/IUser';
 import { Router } from '@angular/router';
@@ -32,7 +32,6 @@ export class PostsService {
     private router: Router
     ) {
       this.authService.user$.subscribe(user => this.user = user)
-      
     }
 
   
@@ -59,6 +58,7 @@ export class PostsService {
     const ref = this.storage.ref(path)
     this.task = this.storage.upload(path,image)
     this.task.snapshotChanges().pipe(
+      take(1),
       tap(console.log),
       finalize( async() => {
         this.downloadURL = await ref.getDownloadURL().toPromise().then(res => {
@@ -77,7 +77,10 @@ export class PostsService {
             id: randomId
           }
           this.firestore.collection('posts').doc(randomId).set(currentPost)
-            .then(res => this.router.navigate(['']))
+            .then(res => {
+              this.router.navigate(['']);
+              alert('successful update')
+            }) 
             .catch(res => console.log(res))
         });
 
