@@ -31,39 +31,34 @@ export class AuthService {
         }
       }));
      }
+  
+  signOut(){
+    this.afAuth.signOut().then((res)=> console.log(res)) 
+  };
 
-    // getUserFromCollection(uid){
-    //   return this.afDb.doc(`users/${uid}`).snapshotChanges().pipe(map((user) =>user.payload.data()))
-    // }
+  signUpWithEmail(value){
+    // Create user in Firebase Authentication and after this add user data in user collection db;
 
+    const {firstName, lastName, passwordsGroup, email} = value;
+    const password = passwordsGroup.password
 
-    signOut(){
-      this.afAuth.signOut().then((res)=> console.log(res)) 
-    };
-
-    signUpWithEmail(value){
-      // Create user in Firebase Authentication and after this add user data in user collection db;
-
-      const {firstName, lastName, passwordsGroup, email} = value;
-      const password = passwordsGroup.password
-
-      // Set placeholder data that will be changed by the user in Profile Settings 
-      let description = "";
-      let picture = "https://firebasestorage.googleapis.com/v0/b/testproject-dd39a.appspot.com/o/shared%2Fplaceholder.jpg?alt=media&token=75c971e8-a5db-422b-a6ef-cf7b1807b72a";
-      let pictureLoc = ""
+    // Set placeholder data that will be changed by the user in Profile Settings 
+    let description = "";
+    let picture = "https://firebasestorage.googleapis.com/v0/b/testproject-dd39a.appspot.com/o/shared%2Fplaceholder.jpg?alt=media&token=75c971e8-a5db-422b-a6ef-cf7b1807b72a";
+    let pictureLoc = ""
      
-      this.afAuth.createUserWithEmailAndPassword(email,password)
-        .then(userAuth => {
-          const uid = userAuth.user.uid
-          this.afDb.collection('users').doc(uid).set({firstName,lastName,email,picture,pictureLoc,uid,description})
-            .then(res => this.router.navigate(['']))
-            .catch(res => console.log(res))
-        })
-        .catch(res => console.log(res))
-    }
+    this.afAuth.createUserWithEmailAndPassword(email,password)
+      .then(userAuth => {
+        const uid = userAuth.user.uid
+        this.afDb.collection('users').doc(uid).set({firstName,lastName,email,picture,pictureLoc,uid,description})
+          .then(res => this.router.navigate(['']))
+          .catch(res => console.log(res))
+      })
+      .catch(res => console.log(res))
+  }
     
-    signInWithEmail(email,password){
-      this.afAuth.signInWithEmailAndPassword(email, password).then(res => {console.log(res)});
-      this.router.navigate(['']);
-    }
+  signInWithEmail(email,password){
+    this.afAuth.signInWithEmailAndPassword(email, password).then(res => {console.log(res)});
+    this.router.navigate(['']);
+  }
 }

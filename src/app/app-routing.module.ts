@@ -9,7 +9,7 @@ import { AboutComponent } from './about/about.component';
 import { DownloadComponent } from './download/download.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RegisterComponent } from './auth/register/register.component';
-import { TestComponent } from './core/test/test.component';
+import { TestComponent } from './shared/test/test.component';
 
 
 const routes: Routes = [

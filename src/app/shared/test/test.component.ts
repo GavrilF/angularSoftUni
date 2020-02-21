@@ -1,14 +1,26 @@
+import { Component, OnInit } from '@angular/core';
 import { PostsService } from 'src/app/shared/services/posts.service';
-import { FormGroup, FormControl, Validators } from '@angular/forms';import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+
+
+// import 'firebase/firestore';
+// import 'firebase/storage';
+
 
 @Component({
-  selector: 'app-create-post',
-  templateUrl: './create-post.component.html',
-  styleUrls: ['./create-post.component.scss']
+  selector: 'app-test',
+  templateUrl: './test.component.html',
+  styleUrls: ['./test.component.scss']
 })
-export class CreatePostComponent implements OnInit {
+export class TestComponent implements OnInit {
 
+  
   constructor(private postService: PostsService) {}
+
+  ngOnInit(): void {
+  }
+
+
 
   signup = new FormGroup({
     title: new FormControl(null, [Validators.minLength(8)]),
@@ -22,8 +34,4 @@ export class CreatePostComponent implements OnInit {
     this.postService.uploadPost(this.signup.value)
     console.log(this.signup.value)
   }
-  
-  ngOnInit(): void {
-  }
-
 }

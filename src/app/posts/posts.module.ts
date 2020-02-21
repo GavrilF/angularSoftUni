@@ -6,7 +6,8 @@ import { CreatePostComponent } from './create-post/create-post.component';
 import { PostsService } from '../shared/services/posts.service';
 import { RouterModule } from '@angular/router';
 import { PostRoutingModule } from './post-routing.module';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -18,7 +19,9 @@ import { PostRoutingModule } from './post-routing.module';
   imports: [
     CommonModule,
     RouterModule,
-    PostRoutingModule
+    PostRoutingModule,
+    ReactiveFormsModule,
+    SharedModule
   ],
   providers:[
     PostsService

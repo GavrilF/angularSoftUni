@@ -47,7 +47,9 @@ export class PostsService {
       return query.orderBy("creationDate","desc")
       }).valueChanges({idField: 'id'})
   }
+
   // The ugliest Code ever but will fix it with rjxs operators
+  
   uploadPost(value){
     const {title,category,description,image,tags} = value;
     const randomId = (Math.random() * 100).toString()
