@@ -63,9 +63,10 @@ export class AuthService {
   }
     
   signInWithEmail(email,password){
-    this.afAuth.signInWithEmailAndPassword(email, password).then(res => {
+    this.afAuth.signInWithEmailAndPassword(email, password)
+    .then(res => {
+      localStorage.setItem("user","true")
       this.router.navigate(['']);
-    });
-    localStorage.setItem("user","true")
+    }).catch((error)=>{alert("Wrong user credentials")});
   }
 }
