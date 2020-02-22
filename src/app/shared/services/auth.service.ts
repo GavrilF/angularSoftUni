@@ -86,10 +86,13 @@ export class AuthService {
       .then(userAuth => {
         const uid = userAuth.user.uid
         this.afDb.collection('users').doc(uid).set({firstName,lastName,email,picture,pictureLoc,uid,description})
-          .then(res => this.router.navigate(['']))
+          .then(res => {
+            localStorage.setItem("user","true");
+            this.router.navigate([''])
+          })
           .catch(res => console.log(res))
       })
-      .catch(res => console.log(res))
+      .catch(res => alert(res.message))
   }
     
   signInWithEmail(email,password){

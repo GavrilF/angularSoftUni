@@ -9,7 +9,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   templateUrl: './profile-settings.component.html',
   styleUrls: ['./profile-settings.component.scss']
 })
-export class ProfileSettingsComponent implements OnInit, OnDestroy {
+export class ProfileSettingsComponent implements OnInit {
 
   user$: Observable<IUser>;
   profileChangeForm: FormGroup;
@@ -23,23 +23,17 @@ export class ProfileSettingsComponent implements OnInit, OnDestroy {
     })
   }
   
- 
-  uploadFile($event) {
-   
-    console.log($event.target.files[0]); // outputs the first file
-  }
+
   submitForm(){
     this.user$.subscribe(user =>{
       const uid = user.uid
       this.userService.updateProfile(this.profileChangeForm.value,uid)
     })
   }
-  ngOnInit(): void {
-    this.user$ = this.userService.user$
-    
-  }
-  ngOnDestroy(){
 
+  
+  ngOnInit(): void {
+    this.user$ = this.userService.user$    
   }
 
 }

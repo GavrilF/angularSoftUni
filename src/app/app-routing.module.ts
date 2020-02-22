@@ -9,13 +9,11 @@ import { AboutComponent } from './about/about.component';
 import { DownloadComponent } from './download/download.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RegisterComponent } from './auth/register/register.component';
-import { TestComponent } from './shared/test/test.component';
 import { AuthGuardGuard } from './shared/guards/auth-guard.guard';
 
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
-  { path: "test",component: TestComponent },
 
   { path: "posts",
     loadChildren: () => import("./posts/posts.module").then(m => m.PostsModule)
